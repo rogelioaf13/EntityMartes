@@ -1,25 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using ProyectoWeb_Martes.Models;
 using System.Web.Mvc;
 
 namespace ProyectoWeb_Martes.Controllers
 {
     public class InicioController : Controller
     {
-        // GET: Inicio
+        UsuarioModel modelo = new UsuarioModel();
+
+
+        [HttpGet]
         public ActionResult IniciarSesion()
         {
             return View();
         }
 
+        [HttpGet]
         public ActionResult RegistrarUsuario()
         {
             return View();
         }
 
+        [HttpGet]
         public ActionResult PantallaPrincipal()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult RecuperarAcceso()
         {
             return View();
         }
