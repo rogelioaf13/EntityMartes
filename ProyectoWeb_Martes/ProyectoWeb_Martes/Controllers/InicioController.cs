@@ -18,10 +18,14 @@ namespace ProyectoWeb_Martes.Controllers
         [HttpPost]
         public ActionResult IniciarSesion(Usuario entidad)
         {
-            return RedirectToAction("PantallaPrincipal", "Inicio");
-            
+            var respuesta = modelo.IniciarSesionUsuario(entidad);
+
+            if (respuesta.Count > 0)
+                return RedirectToAction("PantallaPrincipal", "Inicio");
+            return View();
+
         }
-       
+
         [HttpGet]
         public ActionResult RegistrarUsuario()
         {
@@ -31,11 +35,14 @@ namespace ProyectoWeb_Martes.Controllers
         [HttpPost]
         public ActionResult RegistrarUsuario(Usuario entidad)
         {
-            modelo.RegistrarUsuario(entidad);
+            var respuesta = modelo.RegistrarUsuario(entidad);
+
+            if (respuesta > 0)
+                return RedirectToAction("IniciarSesion", "Inicio");
 
             return View();
         }
-       
+
         [HttpGet]
         public ActionResult RecuperarAcceso()
         {
